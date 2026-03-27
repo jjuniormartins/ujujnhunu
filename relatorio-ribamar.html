@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Relatório - São José de Ribamar</title>
+
+<style>
+
+  :root{
+
+    --bg:#f5f7fa;
+
+    --card:#eef5f8;
+
+    --card2:#f3f5f9;
+
+    --line:#d8e2ea;
+
+    --text:#111827;
+
+    --muted:#4b5563;
+
+    --soft:#6b7280;
+
+    --tag:#d8eef7;
+
+    --blue:#d9ebf5;
+
+    --green:#dcefe7;
+
+    --amber:#f3e6d1;
+
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+
+    margin:0;
+
+    background:var(--bg);
+
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+    color:var(--text);
+
+  }
+
+  .page{
+
+    width:1400px;
+
+    margin:0 auto;
+
+    padding:18px 16px 24px;
+
+  }
+
+  .pill{
+
+    display:inline-block;
+
+    background:#d7ebf4;
+
+    color:#26323b;
+
+    border-radius:999px;
+
+    padding:10px 16px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+  }
+
+  h1{
+
+    margin:6px 0 8px;
+
+    font-size:56px;
+
+    line-height:1.02;
+
+    letter-spacing:-0.03em;
+
+  }
+
+  .subtitle{
+
+    font-size:26px;
+
+    color:#4b5563;
+
+    margin-bottom:24px;
+
+    font-weight:600;
+
+  }
+
+  .grid{
+
+    display:grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap:16px;
+
+    margin-bottom:16px;
+
+  }
+
+  .grid2{
+
+    display:grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap:16px;
+
+    margin-bottom:16px;
+
+  }
+
+  .grid3{
+
+    display:grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap:16px;
+
+  }
+
+  .card{
+
+    background:var(--card2);
+
+    border:1px solid var(--line);
+
+    border-radius:8px;
+
+    padding:18px 20px;
+
+  }
+
+  .card.blue{background:var(--card)}
+
+  .section-title{
+
+    font-size:24px;
+
+    font-weight:800;
+
+    margin:2px 0 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+  }
+
+  .mini-grid{
+
+    display:grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap:14px;
+
+  }
+
+  .mini{
+
+    background:#ffffffaa;
+
+    border:1px solid var(--line);
+
+    border-radius:6px;
+
+    padding:16px;
+
+    min-height:185px;
+
+  }
+
+  .mini h4{
+
+    margin:0 0 12px;
+
+    font-size:18px;
+
+    font-weight:500;
+
+    color:#424a52;
+
+  }
+
+  .tag{
+
+    display:inline-block;
+
+    border:1px solid #8aa8a0;
+
+    color:#2d6f5f;
+
+    background:#eef8f4;
+
+    padding:5px 12px;
+
+    border-radius:999px;
+
+    font-size:14px;
+
+    margin-bottom:12px;
+
+  }
+
+  .tag.gray{
+
+    color:#6b7280;
+
+    border-color:#c9d3dc;
+
+    background:#eff3f6;
+
+  }
+
+  .tag.amber{
+
+    color:#8a5a28;
+
+    border-color:#c5a06e;
+
+    background:#faf2e4;
+
+  }
+
+  .body{
+
+    font-size:18px;
+
+    line-height:1.5;
+
+    color:#374151;
+
+  }
+
+  .problem{
+
+    margin-bottom:18px;
+
+    padding-left:18px;
+
+    position:relative;
+
+    font-size:17px;
+
+    line-height:1.45;
+
+    color:#374151;
+
+  }
+
+  .problem:before{
+
+    content:"";
+
+    width:8px;height:8px;border-radius:50%;
+
+    background:#b8d2df;
+
+    position:absolute;left:0;top:8px;
+
+  }
+
+  .problem b{display:block;color:#111827;font-size:18px;margin-bottom:2px}
+
+  .quote{
+
+    font-style:italic;
+
+    color:#374151;
+
+  }
+
+  .exec{
+
+    display:grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap:14px;
+
+    align-items:stretch;
+
+  }
+
+  .execbox{
+
+    background:#ffffffaa;
+
+    border:1px solid var(--line);
+
+    border-radius:6px;
+
+    padding:16px;
+
+    min-height:168px;
+
+  }
+
+  .execbox .label{
+
+    font-size:17px;
+
+    color:#61707e;
+
+    margin-bottom:10px;
+
+  }
+
+  .execbox .big{
+
+    font-size:29px;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+
+  }
+
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+
+  .chip{
+
+    background:#fff;
+
+    border:1px solid #cad6e1;
+
+    border-radius:6px;
+
+    padding:6px 12px;
+
+    font-size:17px;
+
+  }
+
+  .two-col{
+
+    display:grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap:22px;
+
+    margin-top:12px;
+
+  }
+
+  .two-col .item{
+
+    font-size:18px;
+
+    color:#44515d;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+  }
+
+  .hero{
+
+    display:grid;
+
+    grid-template-columns: 90px 1fr auto;
+
+    gap:16px;
+
+    align-items:start;
+
+    margin-bottom:18px;
+
+  }
+
+  .avatar{
+
+    width:78px;height:78px;border-radius:50%;
+
+    background:#cfe3ef;
+
+    display:flex;align-items:center;justify-content:center;
+
+    font-size:28px;font-weight:800;color:#111827;
+
+  }
+
+  .name{
+
+    font-size:30px;
+
+    font-weight:800;
+
+    margin:0 0 4px;
+
+  }
+
+  .role{
+
+    font-size:17px;
+
+    color:#1f2937;
+
+    background:#e7eff4;
+
+    border:1px solid var(--line);
+
+    border-radius:999px;
+
+    padding:8px 14px;
+
+    font-weight:700;
+
+  }
+
+  .desc{
+
+    font-size:19px; line-height:1.45; color:#374151;
+
+  }
+
+  .inner-grid{
+
+    display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px;
+
+  }
+
+  .inner{
+
+    background:#ffffffaa; border:1px solid var(--line); border-radius:6px; padding:14px 16px; min-height:118px;
+
+  }
+
+  .inner h5{
+
+    margin:0 0 8px; font-size:16px; color:#5f6b78;
+
+  }
+
+  .stars{font-size:20px; color:#a7c6dc; letter-spacing:2px; margin-bottom:6px}
+
+  .profile .row{
+
+    padding:16px 0;
+
+    border-bottom:3px solid #d7e7f0;
+
+    display:flex; justify-content:space-between; gap:12px;
+
+    font-size:17px;
+
+  }
+
+  .profile .row:last-child{border-bottom:none;padding-bottom:8px}
+
+  .profile .k{color:#374151;font-size:17px}
+
+  .profile .v{font-weight:800;font-size:18px;text-align:right}
+
+  .small-badges{display:flex;gap:6px;margin-top:16px;align-items:center}
+
+  .circle{
+
+    width:34px;height:34px;border-radius:50%;background:#d8ebf6;border:1px solid var(--line);
+
+    display:flex;align-items:center;justify-content:center;font-weight:800
+
+  }
+
+  .foot{
+
+    margin-top:16px;
+
+    color:#5b6672;
+
+    font-size:14px;
+
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+  <div class="pill">Relatório de Opinião Pública</div>
+
+  <h1>Análise de Opiniões Políticas e Intenções de Voto</h1>
+
+  <div class="subtitle">Diagnóstico consolidado de São José de Ribamar, Maranhão</div>
+
+
+
+
+  <div class="grid">
+
+    <div class="card blue">
+
+      <div class="section-title">📊 Avaliação das Gestões Atuais</div>
+
+      <div class="mini-grid">
+
+        <div class="mini">
+
+          <h4>Municipal (Dr. Julinho)</h4>
+
+          <div class="tag">Desaprovação predominante</div>
+
+          <div class="body">A percepção dominante é de desgaste administrativo, associada a abandono de rua, falha de entrega e sensação de promessas não cumpridas. Mesmo onde existe tolerância, ela não é suficiente para neutralizar o incômodo com infraestrutura, escola e serviços básicos.</div>
+
+        </div>
+
+        <div class="mini">
+
+          <h4>Federal (Lula)</h4>
+
+          <div class="tag gray">Polarizada</div>
+
+          <div class="body">O ambiente aparece dividido. Há núcleos de aprovação e lembrança positiva, mas também rejeição ideológica dura e eleitorado que migra para referências bolsonaristas. Não há hegemonia emocional estável.</div>
+
+        </div>
+
+        <div class="mini">
+
+          <h4>Estadual (Brandão)</h4>
+
+          <div class="tag amber">Mista</div>
+
+          <div class="body">A leitura sobre o governo estadual oscila entre aprovação pragmática, resposta morna e crítica por baixa presença concreta. O sentimento predominante não é entusiasmo, mas avaliação condicional.</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+    <div class="card">
+
+      <div class="section-title">❗ Problemas Críticos</div>
+
+      <div class="problem"><b>Infraestrutura urbana</b> Ruas esburacadas, falta de pavimentação, drenagem precária, calçamento irregular e sensação de abandono em vários bairros.</div>
+
+      <div class="problem"><b>Saúde pública</b> Falta de médicos, demora para atendimento, carência de posto próximo e cobrança por presença concreta da saúde básica.</div>
+
+      <div class="problem"><b>Educação e insumos escolares</b> Reaparecem queixas sobre escola, banheiros, material, lanche, farda e estrutura física.</div>
+
+      <div class="problem"><b>Lixo, água e serviços urbanos</b> Coleta irregular, falta d'água, iluminação fraca e limpeza insuficiente entram como sinais de negligência cotidiana.</div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="grid2">
+
+    <div class="card blue">
+
+      <div class="section-title">🏛️ Cenário Executivo (Destaques)</div>
+
+      <div class="exec">
+
+        <div class="execbox">
+
+          <div class="label">Governador</div>
+
+          <div class="big">Eduardo Braide</div>
+
+          <div class="body">Entre os nomes estimulados, é o polo mais recorrente de atração. Surge como alternativa competitiva, sobretudo entre eleitores que rejeitam continuidade de grupos já instalados.</div>
+
+        </div>
+
+        <div class="execbox">
+
+          <div class="label">Presidente</div>
+
+          <div class="big">Campo fragmentado</div>
+
+          <div class="body">Lula mantém bolsões de apoio, mas convive com rejeição forte e com memória ativa do bolsonarismo. O município não mostra consenso; mostra disputa emocional e ideológica.</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+    <div class="card">
+
+      <div class="section-title">🏛️ Senado &amp; Legislativo</div>
+
+      <div class="chips">
+
+        <div class="chip">Roberto Rocha</div>
+
+        <div class="chip">Weverton Rocha</div>
+
+        <div class="chip">Felipe Camarão</div>
+
+        <div class="chip">Rosiana Sarney</div>
+
+        <div class="chip">Elisiane Gama</div>
+
+      </div>
+
+      <div class="body" style="margin-bottom:16px">O voto para o Senado aparece pulverizado, sem ancoragem dominante única. Há lembrança de nomes tradicionais, mas também alta dispersão e respostas de rejeição difusa.</div>
+
+      <div class="two-col">
+
+        <div class="item">♡ <span>Trabalho pela saúde</span></div>
+
+        <div class="item">🏗️ <span>Capacidade de trazer recursos e obras</span></div>
+
+        <div class="item">🤝 <span>Proximidade com a população</span></div>
+
+        <div class="item">🛡️ <span>Firmeza para defender o Maranhão</span></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="grid3">
+
+    <div class="card">
+
+      <div class="hero">
+
+        <div class="avatar">HD</div>
+
+        <div>
+
+          <div class="name">Dra. Helena Duailibe</div>
+
+          <div class="desc">Imagem ainda desigual no município. Onde é conhecida, a lembrança é fortemente ancorada em saúde, presença comunitária, preparo técnico e capacidade de cuidado. Onde não é conhecida, a barreira central é o desconhecimento puro, que trava conversão automática.</div>
+
+        </div>
+
+        <div class="role">Deputada / Médica</div>
+
+      </div>
+
+
+
+
+      <div class="inner-grid">
+
+        <div class="inner">
+
+          <h5>Potencial de Voto</h5>
+
+          <div class="stars">★ ★ ★ ☆ ☆</div>
+
+          <div class="body">Potencial intermediário. Há boa disposição entre quem associa o nome à saúde e à presença territorial, mas a expansão depende de aumentar reconhecimento e dar lastro político além do nicho já simpático.</div>
+
+        </div>
+
+        <div class="inner">
+
+          <h5>Recado do Eleitor</h5>
+
+          <div class="quote">"Quando ela chegasse lá no poder, não esquecesse da saúde, que ela continuasse trabalhando pela saúde."</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+    <div class="card profile">
+
+      <div class="section-title">👥 Perfil do Eleitor</div>
+
+      <div class="row"><div class="k">Renda predominante</div><div class="v">1 a 2 salários</div></div>
+
+      <div class="row"><div class="k">Escolaridade dominante</div><div class="v">Fund. / Médio</div></div>
+
+      <div class="row"><div class="k">Religião mais recorrente</div><div class="v">Católica / Evangélica</div></div>
+
+      <div class="row"><div class="k">Lógica de cobrança</div><div class="v">Entrega concreta e presença</div></div>
+
+      <div class="small-badges">
+
+        <div class="circle">A</div>
+
+        <div class="circle">M</div>
+
+        <div style="font-size:16px;font-weight:800">+ infra, saúde, escola</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="foot">
+
+    Base de leitura: síntese integral das transcrições de São José de Ribamar, com predominância de leitura qualitativa e priorização de recorrências, intensidade emocional e padrões de cobrança.
+
+  </div>
+
+</div>
+
+</body>
+
+</html>
